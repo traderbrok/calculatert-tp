@@ -1,0 +1,89 @@
+/* Styling til hele siden */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container til midterjustering */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header-styling */
+h1 {
+    text-align: center;
+    color: #4a90e2;
+}
+
+/* Styling til input og knapper */
+input, button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Specifik styling til knapper */
+button {
+    cursor: pointer;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover-effekt til knapper */
+button:hover {
+    background-color: #357ABD;
+}
+
+/* Resultatfelt styling */
+.result {
+    margin-top: 20px;
+}
+
+/* Listestil for TP niveauer */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #e3f2fd;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 4px solid #4a90e2;
+    border-radius: 4px;
+    color: #2c3e50;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+}
+
+/* Underoverskrift */
+h2 {
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+/* Responsive styling til mindre skærme */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    input, button {
+        width: calc(100% - 12px);
+    }
+}
