@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Calculator</title>
+    <!-- Link til ekstern CSS-fil -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Take-Profit Calculator</h1>
+        <div>
+            <label for="buyPrice">Enter Buy-In Price:</label>
+            <input type="number" id="buyPrice" placeholder="Enter your buy price">
+        </div>
+        <div>
+            <button onclick="calculateTP('Long')">Long Trade</button>
+            <button onclick="calculateTP('Short')">Short Trade</button>
+        </div>
+        <div class="result">
+            <h2>Take-Profit Points:</h2>
+            <ul id="tpList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function calculateTP(type) {
+            const buyPrice = parseFloat(document.getElementById('buyPrice').value);
+            const tpInterval = 0.003;  // 0.3% interval
+            let tpList = document.getElementById("tpList");
+            tpList.innerHTML = "";  // Clear previous results
+
+            if (!buyPrice || buyPrice <= 0) {
+                alert("Please enter a valid buy price.");
+                return;
+            }
+
+            // Calculate and display the TP points
+            for (let i = 1; i <= 5; i++) {
+                let tpValue;
+                if (type === "Long") {
+                    tpValue = buyPrice * (1 + tpInterval * i);
+                } else if (type === "Short") {
+                    tpValue = buyPrice * (1 - tpInterval * i);
+                }
+                // Create list item for each TP level
+                let listItem = document.createElement("li");
+                listItem.textContent = `TP${i}: ${tpValue.toFixed(2)}`;
+                tpList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
